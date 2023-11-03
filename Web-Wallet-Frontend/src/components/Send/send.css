@@ -1,0 +1,298 @@
+page-container__title {
+  font-size: 1.125rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+}
+
+.send__header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+  padding: 14px 0 3px 0;
+}
+.page-container__header-close-text {
+  font-size: 1rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  position: absolute;
+  right: 1rem;
+  width: 150px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.btn-link {
+  color: rgb(141, 141, 247);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+input__wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.send__select-recipient-wrapper__group-item,
+.send__select-recipient-wrapper__group-item--selected {
+  align-items: center;
+  cursor: pointer;
+}
+.new-account-modal__footer,
+.send__select-recipient-wrapper__list__link,
+.send__select-recipient-wrapper__group-item,
+.send__select-recipient-wrapper__group-item--selected,
+.ens-input,
+.ens-input__wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.box--color-text-alternative {
+  color: var(--color-text-alternative);
+}
+.box--flex-direction-row {
+  flex-direction: row;
+}
+.mm-text--body-md {
+  font-family: var(--typography-s-body-md-font-family);
+  font-weight: var(--typography-s-body-md-font-weight);
+  font-size: var(--typography-s-body-md-font-size);
+  line-height: var(--typography-s-body-md-line-height);
+  letter-spacing: var(--typography-s-body-md-letter-spacing);
+}
+.ens-input,
+.ens-input__wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.page-container__content {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.send-v2__form-row {
+  margin: 1rem 1.3rem 0;
+   position: relative; 
+  display: flex;
+   flex-flow: row; 
+   flex: 1 1 auto; 
+  justify-content: space-between;
+  align-items: center;
+}
+
+.send-v2__asset-dropdown__single-asset {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 8px 8px;
+}
+
+.send-v2__asset-dropdown__name {
+  font-size: 0.75rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bordered-div {
+  border: 1px solid rgb(207, 170, 170); /* Add a red border to the div */
+  padding: 6px 0px; /* Add padding to the div to create space inside */
+  width: 260px; /* Set a width for the div */
+  text-align: center; /* Center the text horizontally within the div */
+  margin-left: 1px; /* Move the div 20px to the left */
+  border-radius: 10px; /* Make the corners round */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle black shadow */
+  
+  display: flex;
+  align-items: left;
+  gap: 10px;
+}
+
+.asset-div {
+  border: 1px solid rgb(207, 170, 170); /* Add a red border to the div */
+  padding: 6px 0px; /* Add padding to the div to create space inside */
+  width: 285px; /* Set a width for the div */
+  text-align: center; /* Center the text horizontally within the div */
+  margin-left: 1px; /* Move the div 20px to the left */
+  border-radius: 10px; /* Make the corners round */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle black shadow */
+  height:60px;
+  display: flex;
+  align-items: left;
+  gap: 10px;
+}
+
+.label_heading {
+  font-size: 20px;
+  line-height: 17px;
+}
+
+.label,
+.additional-text {
+  /* margin: 10px 0; */
+  /* Add spacing above and below the text */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.additional-container {
+  /* display: flex; */
+  /* Use flexbox to align items horizontally */
+  /* align-items: center; */
+  /* Center vertically */
+  text-align: start;
+}
+.additional-text-prefix {
+  margin-right: 50px; /* Add some space between "saif" and "Additional Text Below" */
+  font-weight: bold; /* Make "saif" bold */
+}
+
+.account-div {
+  border: 1px solid rgb(146, 125, 125); /* Add a red border to the div */
+  padding: 9px 13px; /* Add padding to the div to create space inside */
+  width: 445px; /* Set a width for the div */
+  text-align: left; /* Center the text horizontally within the div */
+  /* margin-left: 190px; */
+  /* Move the div 20px to the left */
+  margin: 10px auto 5px auto;
+  border-radius: 10px; /* Make the corners round */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle black shadow */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+.send {
+  padding-top: 7px;
+}
+
+.ens-input__selected-input__subtitle {
+  font-size: 0.75rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  color: rgb(120, 143, 207);
+  margin-top: 0.25rem;
+}
+
+.send-v2__form-label {
+  font-size: 1rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  color: var(--color-text-alternative);
+  margin-left: 150px;
+}
+
+.send-v2__form-field {
+  border: 1px solid rgb(179, 162, 162); /* Add a red border to the div */
+  padding: 1px; /* Add padding to the div to create space inside */
+  text-align: left; /* Center the text horizontally within the div */
+  margin-left: 40px; /* Move the div 20px to the left */
+  margin-top: 3px;
+  border-radius: 5px; /* Make the corners round */
+  width: 250px !important;
+}
+
+.cross-icon {
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.amount {
+  font-size: 1rem;
+  font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  color: var(--color-text-alternative);
+  margin-left: 150px;
+  margin-top: 1px;
+}
+.send-v2__amount-max {
+    font-size: 0.75rem;
+    font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 20px;
+    margin-top: 5px;
+    border-radius: 100px;
+}
+
+.send-v2__amount-max__button {
+    width: 56px;
+    height: 20px;
+    position: absolute;
+    border: 1px solid var(blue);
+    border-radius: 100px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(blue);
+    background: var(blue);
+}
+
+
+
+
+
+.unit-input__input-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+    background-color: rgb(225, 159, 97);
+}
+
+.currency-input__conversion-component {
+    font-size: 0.75rem;
+    font-family: "Euclid Circular B", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    font-style: normal;
+    font-weight: normal;
+    padding-left: 1px;
+}
+
+.currency-input__swap-component {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-icon-default);
+    cursor: pointer;
+    background: red;
+    border: none;
+}
