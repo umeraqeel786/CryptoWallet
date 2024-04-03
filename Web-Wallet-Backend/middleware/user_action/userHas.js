@@ -17,7 +17,14 @@ module.exports = async(product,user,type) =>{
             if (!hasOnCart) hasOnCart = false
         }
 
-      
+        //wishlist bahek aru ko lagi check gareko
+        if (type !=='wishlists') {
+            // has on wishlist?
+            hasOnWishlist = await Whislist.findOne({ user: user._id, product: product._id, isDeleted: null })
+            if (!hasOnWishlist) hasOnWishlist = false
+        }
+
+       
     }
     
     return {hasBought,hasOnCart,hasOnWishlist,hasReviewed}
