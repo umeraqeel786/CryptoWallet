@@ -14,5 +14,15 @@ module.exports = async (product,newStar) => {
         if (s.star === 1) oneStars += 1
     })
     //this condition is executed during postReview and editReview
-   
+    if (newStar === 5) fiveStars += 1
+    if (newStar === 4) fourStars += 1
+    if (newStar === 3) threeStars += 1
+    if (newStar === 2) twoStars += 1
+    if (newStar === 1) oneStars += 1
+
+
+    let totalRatingUsers = (fiveStars + fourStars + threeStars + twoStars + oneStars)
+    let averageStar = (5 * fiveStars + 4 * fourStars + 3 * threeStars + 2 * twoStars + oneStars) / totalRatingUsers
+
+    
 }
