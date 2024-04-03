@@ -224,3 +224,79 @@ exports.validateWareHouse = (req, res, next) => {
     next()
 }
 
+exports.validateAdminProfile = (req, res, next) => {
+    req.check("shopName", "Shop name is required").notEmpty()
+    req.check("address", "address is required").notEmpty()
+    req.check("phone", "phone number is required").notEmpty()
+    req.check("muncipality", "Muncipality is required").notEmpty()
+    req.check("district", "district is required").notEmpty()
+    req.check("wardno", "wardno is required").notEmpty()
+    req.newPassword && req.check("newPassword")
+        .isLength({ min: 6 })
+        .withMessage("Password must be at least 6 chars long")
+        .matches(/\d/)
+        .withMessage("must contain a number")
+        .withMessage("Password must contain a number");
+    // check for errors
+    const errors = req.validationErrors();
+    // if error show the first one as they happen
+    if (errors) {
+        const firstError = errors.map(error => error.msg)[0];
+        return res.status(400).json({ error: firstError });
+    }
+    next()
+}
+exports.validateProduct = async (req, res, next) => {
+    req.check("name", "Product name is required").notEmpty()
+    req.check("price", "Selling price of product is required").notEmpty()
+    req.check("quantity", "Product quantity is required").notEmpty()
+    req.check("return", "Product returning time peroid required").notEmpty()
+    req.check("description", "Product description is required").notEmpty()
+    req.check("warranty", "Product warranty is required").notEmpty()
+    req.check("brand", "Product brand is required").notEmpty()
+    req.check("availableDistricts", "Invalid districts.").custom((values) => {
+        let dts = values ? typeof values === 'string' ? [values] : values : []
+        return values ? _.intersection(districts, dts).length === dts.length ? true : false : true
+    })
+
+    // check for errors
+    const errors = req.validationErrors() || [];
+
+    // validate images
+    let images = req.body.images || []
+    images = await ProductImages
+        .find()
+        .where('_id')
+        .in(images)
+        .catch(err => errors.push({ msg: "Invalid image ids" }));// catch will execute if invalid ids
+    // if some id are invalid
+    // e.g out of 3 images 1 is not valid the images.length = 2 bcoz 2 are only vaild so shld return error..
+    if (images.length !== (typeof req.body.images === 'string' ? [req.body.images] : req.body.images).length) {
+        errors.push({ msg: "Invalid image ids" })
+    }
+    req.images = images
+    // validate brand
+    let brand = await ProductBrand.findOne({ slug: req.body.brand })
+    if (!brand) {
+        errors.push({ msg: "Invalid product brand" })
+    } else {
+        req.body.brand = brand._id
+    }
+
+    //validate category
+    let categories = await Category.find({ slug: req.body.category })
+    if (!categories.length) {
+        errors.push({ msg: "Invalid product category" })
+    } else if (categories.some(cat=>cat.isDisabled)) {
+        errors.push({ msg: "Categories have been disabled" })
+    } else {
+        req.body.category = categories.map(cat=>cat._id)//as we need id for reference
+    }
+    // if error show the first one as they happen
+    if (errors.length) {
+        console.log(errors);
+        const firstError = errors.map(error => error.msg)[0];
+        return res.status(400).json({ error: firstError });
+    }
+    next()
+}
