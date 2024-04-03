@@ -28,7 +28,9 @@ module.exports = async(product,user,type) =>{
             //has bought?
             hasBought = await Order.findOne({ user: user, $or: [{ 'status.currentStatus': 'complete' }, { 'status.currentStatus': 'tobereturned', 'status.currentStatus': 'return' }] })
             hasBought ? hasBought = true : hasBought = false
-            
+            //has reviewed?
+            hasReviewed = await Review.findOne({ user: user, product: product._id }).select('comment star user')
+            if (!hasReviewed) hasReviewed = false
             
         }
     }
