@@ -9,4 +9,16 @@ module.exports = async(product,user,type) =>{
     let hasOnWishlist = null
     let hasReviewed = null
   
+    if (user) {
+        //cart bahek aru ko lagi check gareko
+        if (type !=='carts') {
+            //has on cart?
+            hasOnCart = await Cart.findOne({ user: user._id, product: product._id, isDeleted: null })
+            if (!hasOnCart) hasOnCart = false
+        }
+
+      
+    }
+    
+    return {hasBought,hasOnCart,hasOnWishlist,hasReviewed}
 }
