@@ -190,3 +190,20 @@ exports.validateBusinessInfo = (req, res, next) => {
     next()
 }
 
+
+exports.validateAdminBankInfo = (req, res, next) => {
+    req.check("accountHolder", "Account holder name is required").notEmpty()
+    req.check("bankName", "Bank name is required").notEmpty()
+    req.check("branchName", "Branch name is required").notEmpty()
+    req.check("accountNumber", "Account number is required").notEmpty()
+    req.check("routingNumber", "Bank number is required").notEmpty()
+    // check for errors
+    const errors = req.validationErrors();
+    // if error show the first one as they happen
+    if (errors) {
+        // req.file && fs.unlinkSync(req.file.path);//remove file from public/uploads
+        const firstError = errors.map(error => error.msg)[0];
+        return res.status(400).json({ error: firstError });
+    }
+    next()
+}
