@@ -164,3 +164,29 @@ exports.passwordResetValidator = (req, res, next) => {
     // proceed to next middleware
     next();
 };
+
+
+exports.validateBusinessInfo = (req, res, next) => {
+    req.check("ownerName", "Owner name is required").notEmpty()
+    req.check("address", "Address is required").notEmpty()
+    req.check("city", "City is required").notEmpty()
+    req.check("citizenshipNumber", "Citizenship number is required").notEmpty()
+    req.check("businessRegisterNumber", "Business register number is required").notEmpty()
+    // check for errors
+    const errors = req.validationErrors();
+    // if error show the first one as they happen
+    if (errors) {
+        //make req.files to array of objs
+        // let files = []
+        // if (req.files) for (const file in req.files) {
+        //     files.push(req.files[file][0]);
+        // }
+        // files.forEach(file => {
+        //     fs.unlinkSync(file.path);//and remove file from public/uploads
+        // })
+        const firstError = errors.map(error => error.msg)[0];
+        return res.status(400).json({ error: firstError });
+    }
+    next()
+}
+
