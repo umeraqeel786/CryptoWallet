@@ -24,5 +24,10 @@ module.exports = async (product,newStar) => {
     let totalRatingUsers = (fiveStars + fourStars + threeStars + twoStars + oneStars)
     let averageStar = (5 * fiveStars + 4 * fourStars + 3 * threeStars + 2 * twoStars + oneStars) / totalRatingUsers
 
-    
+    return stars = {
+        fiveStars,
+        fourStars,
+        threeStars,
+       
+    }
 }
