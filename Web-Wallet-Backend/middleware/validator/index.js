@@ -84,3 +84,20 @@ exports.validateSocialLogin = (req, res, next) => {
     // proceed to next middleware
     next();
 };
+
+
+
+const validatedispatcher  = req => {
+    // name is not null and between 4-10 characters
+    req.check("name", "Name is required").notEmpty();
+    // email is not null, valid and normalized
+    req.check("email", "Email must be between 3 to 32 characters")
+        .matches(/.+\@.+\..+/)
+        .withMessage("Invalid email")
+        .isLength({
+            min: 4,
+            max: 2000
+        });
+    req.check("address", "Address is required").notEmpty()
+    req.check("phone", "Phone is required").notEmpty()
+}
